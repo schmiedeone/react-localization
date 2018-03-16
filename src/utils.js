@@ -1,17 +1,6 @@
 export function getInterfaceLanguage() {
   const defaultLang = 'en-US';
-  if (typeof window === 'undefined') { 
-     return defaultLang;
-  }
-  if (!!navigator && !!navigator.language) {
-    return navigator.language;
-  } else if (!!navigator && !!navigator.languages && !!navigator.languages[0]) {
-    return navigator.languages[0];
-  } else if (!!navigator && !!navigator.userLanguage) {
-    return navigator.userLanguage;
-  } else if (!!navigator && !!navigator.browserLanguage) {
-    return navigator.browserLanguage;
-  }
+  if (!!global.navigator && !!global.navigator.language) { return global.navigator.language; } else if (!!global.navigator && !!global.navigator.languages && !!global.navigator.languages[0]) { return global.navigator.languages[0]; } else if (!!global.navigator && !!global.navigator.userLanguage) { return global.navigator.userLanguage; } else if (!!global.navigator && !!global.navigator.browserLanguage) { return global.navigator.browserLanguage; }
   return defaultLang;
 }
 
